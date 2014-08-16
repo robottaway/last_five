@@ -10,7 +10,7 @@ setup(
     entry_points = {
         'console_scripts': [
             'last_five=last_five.command:main',
-            'tailit=last_five.tail:main'
+            'tail_five=last_five.tail_command:main'
         ]
     }
 )
