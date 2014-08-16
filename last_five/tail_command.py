@@ -38,7 +38,7 @@ def flush(outputfile, queue, flush_interval=FIVE_MINUTES):
                 msg = "%s %s %s\n" % (last_flush+1, next_flush, count)
                 fd.write(msg)
             last_flush = next_flush
-            next_flush = next_flush + FLUSH_INTERVAL
+            next_flush = next_flush + flush_interval
             count = 0
         time.sleep(1)
 
@@ -66,7 +66,7 @@ def main():
     treadem.daemon = True
     treadem.start()
 
-    tflush = threading.Thread(target=flush, args=(output_file, queue, 10))
+    tflush = threading.Thread(target=flush, args=(output_file, queue))
     tflush.daemon = True
     tflush.start()
 
